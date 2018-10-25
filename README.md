@@ -40,3 +40,9 @@ module "dcos-infrastructure" {
 | private_agent_ips | List of private agent IPs to SSH to | list | - | yes |
 | public_agent_ips | List of public agent IPs to SSH to | list | - | yes |
 
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| depends | Modules are missing the depends_on feature. Faking this feature with input and output variables |
+
