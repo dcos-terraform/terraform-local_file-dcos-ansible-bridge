@@ -1,27 +1,27 @@
-variable "bootstrap_public_ip" {
-  description = "The public IP address (or hostname) of a bootstrap node"
+variable "bootstrap_ip" {
+  description = "The bootstrap IP to SSH to"
 }
 
-variable "masters_public_ips" {
+variable "master_ips" {
   type        = "list"
-  description = "List of master node public IP addresses"
+  description = "List of masterips to SSH to"
 }
 
-variable "private_agents_public_ips" {
+variable "private_agent_ips" {
   type        = "list"
-  description = "List of private agent node public IP addresses"
+  description = "List of private agent IPs to SSH to"
 }
 
-variable "public_agents_public_ips" {
+variable "public_agent_ips" {
   type        = "list"
-  description = "List of public agent node public IP addresses"
+  description = "List of public agent IPs to SSH to"
 }
 
 variable "bootstrap_private_ip" {
-  description = "The internal IP address (or hostname) of a bootstrap node. Used to generate DC/OS config.yml"
+  description = "Private IP bootstrap nginx is listening on. Used to build the bootstrap URL."
 }
 
-variable "masters_private_ips" {
+variable "master_private_ips" {
   type        = "list"
-  description = "List of master node internal IP addresses. Used to generate DC/OS config.yml"
+  description = "list of master private ips"
 }

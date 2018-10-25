@@ -9,13 +9,14 @@ EXAMPLE
 module "dcos-ansible-bridge" {
   source  = "terraform-dcos/dcos-ansible-bridge/local_file"
   version = "~> 0.1"
-  bootstrap_public_ip       = "${module.dcos-infrastructure.bootstrap.public_ip}"
-  masters_public_ips        = ["${module.dcos-infrastructure.masters.public_ips}"]
-  private_agents_public_ips = ["${module.dcos-infrastructure.private_agents.public_ips}"]
-  public_agents_public_ips  = ["${module.dcos-infrastructure.public_agents.public_ips}"]
 
-  bootstrap_private_ip      = "${module.dcos-infrastructure.bootstrap.private_ip}"
-  masters_private_ips       = ["${module.dcos-infrastructure.masters.private_ips}"]
+  bootstrap_ip         = "${module.dcos-infrastructure.bootstrap.public_ip}"
+  master_ips           = ["${module.dcos-infrastructure.masters.public_ips}"]
+  private_agent_ips    = ["${module.dcos-infrastructure.private_agents.public_ips}"]
+  public_agent_ips     = ["${module.dcos-infrastructure.public_agents.public_ips}"]
+
+  bootstrap_private_ip = "${module.dcos-infrastructure.bootstrap.private_ip}"
+  master_private_ips   = ["${module.dcos-infrastructure.masters.private_ips}"]
 }
 
 module "dcos-infrastructure" {
@@ -32,10 +33,10 @@ module "dcos-infrastructure" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| bootstrap_private_ip | The internal IP address (or hostname) of a bootstrap node. Used to generate DC/OS config.yml | string | - | yes |
-| bootstrap_public_ip | The public IP address (or hostname) of a bootstrap node | string | - | yes |
-| masters_private_ips | List of master node internal IP addresses. Used to generate DC/OS config.yml | list | - | yes |
-| masters_public_ips | List of master node public IP addresses | list | - | yes |
-| private_agents_public_ips | List of private agent node public IP addresses | list | - | yes |
-| public_agents_public_ips | List of public agent node public IP addresses | list | - | yes |
+| bootstrap_ip | The bootstrap IP to SSH to | string | - | yes |
+| bootstrap_private_ip | Private IP bootstrap nginx is listening on. Used to build the bootstrap URL. | string | - | yes |
+| master_ips | List of masterips to SSH to | list | - | yes |
+| master_private_ips | list of master private ips | list | - | yes |
+| private_agent_ips | List of private agent IPs to SSH to | list | - | yes |
+| public_agent_ips | List of public agent IPs to SSH to | list | - | yes |
 

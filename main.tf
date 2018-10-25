@@ -10,13 +10,14 @@
  * module "dcos-ansible-bridge" {
  *   source  = "terraform-dcos/dcos-ansible-bridge/local_file"
  *   version = "~> 0.1"
- *   bootstrap_public_ip       = "${module.dcos-infrastructure.bootstrap.public_ip}"
- *   masters_public_ips        = ["${module.dcos-infrastructure.masters.public_ips}"]
- *   private_agents_public_ips = ["${module.dcos-infrastructure.private_agents.public_ips}"]
- *   public_agents_public_ips  = ["${module.dcos-infrastructure.public_agents.public_ips}"]
  *
- *   bootstrap_private_ip      = "${module.dcos-infrastructure.bootstrap.private_ip}"
- *   masters_private_ips       = ["${module.dcos-infrastructure.masters.private_ips}"]
+ *   bootstrap_ip         = "${module.dcos-infrastructure.bootstrap.public_ip}"
+ *   master_ips   = ["${module.dcos-infrastructure.masters.public_ips}"]
+ *   private_agent_ips    = ["${module.dcos-infrastructure.private_agents.public_ips}"]
+ *   public_agent_ips     = ["${module.dcos-infrastructure.public_agents.public_ips}"]
+ *
+ *   bootstrap_private_ip = "${module.dcos-infrastructure.bootstrap.private_ip}"
+ *   master_private_ips   = ["${module.dcos-infrastructure.masters.private_ips}"]
  * }
  *
  * module "dcos-infrastructure" {
@@ -33,16 +34,16 @@ resource "local_file" "ansible_inventory" {
 
   content = <<EOF
 [bootstraps]
-${var.bootstrap_public_ip}
+${var.bootstrap_ip}
 
 [masters]
-${join("\n", var.masters_public_ips)}
+${join("\n", var.master_ips)}
 
 [agents_private]
-${join("\n", var.private_agents_public_ips)}
+${join("\n", var.private_agent_ips)}
 
 [agents_public]
-${join("\n", var.public_agents_public_ips)}
+${join("\n", var.public_agent_ips)}
 
 [bootstraps:vars]
 node_type=bootstrap
@@ -81,7 +82,7 @@ dcos:
     bootstrap_url: http://${var.bootstrap_private_ip}:8080
     exhibitor_storage_backend: static
     master_discovery: static
-    master_list: ["${join("\",\"", var.masters_private_ips)}"]
+    master_list: ["${join("\",\"", var.master_private_ips)}"]
 
 EOF
 }
