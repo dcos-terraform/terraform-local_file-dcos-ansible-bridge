@@ -27,14 +27,15 @@ module "dcos-infrastructure" {
 }
 ```
 
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| bootstrap\_private\_ip | The internal IP address (or hostname) of a bootstrap node. Used to generate DC/OS config.yml | string | - | yes |
-| bootstrap\_public\_ip | The public IP address (or hostname) of a bootstrap node | string | - | yes |
-| masters\_private\_ips | List of master node internal IP addresses. Used to generate DC/OS config.yml | list | - | yes |
-| masters\_public\_ips | List of master node public IP addresses | list | - | yes |
-| private\_agents\_public\_ips | List of private agent node public IP addresses | list | - | yes |
-| public\_agents\_public\_ips | List of public agent node public IP addresses | list | - | yes |
+| bootstrap_private_ip | The internal IP address (or hostname) of a bootstrap node. Used to generate DC/OS config.yml | string | - | yes |
+| bootstrap_public_ip | The public IP address (or hostname) of a bootstrap node | string | - | yes |
+| masters_private_ips | List of master node internal IP addresses. Used to generate DC/OS config.yml | list | - | yes |
+| masters_public_ips | List of master node public IP addresses | list | - | yes |
+| private_agents_public_ips | List of private agent node public IP addresses | list | - | yes |
+| public_agents_public_ips | List of public agent node public IP addresses | list | - | yes |
 
