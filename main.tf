@@ -12,7 +12,7 @@
  *   version = "~> 0.1"
  *
  *   bootstrap_ip         = "${module.dcos-infrastructure.bootstrap.public_ip}"
- *   master_ips   = ["${module.dcos-infrastructure.masters.public_ips}"]
+ *   master_ips           = ["${module.dcos-infrastructure.masters.public_ips}"]
  *   private_agent_ips    = ["${module.dcos-infrastructure.private_agents.public_ips}"]
  *   public_agent_ips     = ["${module.dcos-infrastructure.public_agents.public_ips}"]
  *
