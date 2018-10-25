@@ -7,7 +7,7 @@ EXAMPLE
 
 ```hcl
 module "dcos-ansible-bridge" {
-  source  = "terraform-dcos/dcos-ansible-bridge/local_file"
+  source  = "dcos-terraform/dcos-ansible-bridge/local_file"
   version = "~> 0.1"
 
   bootstrap_ip         = "${module.dcos-infrastructure.bootstrap.public_ip}"
