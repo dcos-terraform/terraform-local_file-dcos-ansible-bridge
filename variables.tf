@@ -17,9 +17,6 @@ variable "public_agent_ips" {
   description = "List of public agent IPs to SSH to"
 }
 
-variable "bootstrap_private_ip" {
-  description = "Private IP bootstrap nginx is listening on. Used to build the bootstrap URL."
-}
 
 variable "master_private_ips" {
   type        = "list"
