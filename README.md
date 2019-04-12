@@ -28,17 +28,16 @@ module "dcos-infrastructure" {
 }
 ```
 
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| bootstrap_ip | The bootstrap IP to SSH to | string | - | yes |
-| bootstrap_private_ip | Private IP bootstrap nginx is listening on. Used to build the bootstrap URL. | string | - | yes |
-| master_ips | List of masterips to SSH to | list | - | yes |
-| master_private_ips | list of master private ips | list | - | yes |
-| private_agent_ips | List of private agent IPs to SSH to | list | - | yes |
-| public_agent_ips | List of public agent IPs to SSH to | list | - | yes |
+| bootstrap\_ip | The bootstrap IP to SSH to | string | n/a | yes |
+| bootstrap\_private\_ip | Private IP bootstrap nginx is listening on. Used to build the bootstrap URL. | string | n/a | yes |
+| master\_ips | List of masterips to SSH to | list | n/a | yes |
+| master\_private\_ips | list of master private ips | list | n/a | yes |
+| private\_agent\_ips | List of private agent IPs to SSH to | list | n/a | yes |
+| public\_agent\_ips | List of public agent IPs to SSH to | list | n/a | yes |
 
 ## Outputs
 
