@@ -8,7 +8,7 @@
  *
  *```hcl
  * module "dcos-ansible-bridge" {
- *   source  = "dcos-terraform/dcos-ansible-bridge/local_file"
+ *   source  = "dcos-terraform/dcos-ansible-bridge/localfile"
  *   version = "~> 0.1"
  *
  *   bootstrap_ip         = "${module.dcos-infrastructure.bootstrap.public_ip}"
